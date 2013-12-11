@@ -10,12 +10,12 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <name>HelloWorld</name>
+    <name>Lets Make a Baby</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Lets make a baby is an app to help maximize your chances of conceiving a child. It calculates when you are most likely to conceive and offers the option to set these dates in your phones calendar so that you may never miss another chance to make your very own bundle of joy.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="andyb5051@goglemail.com" href="http://phonegap.com">
+        Andy Brown.
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
