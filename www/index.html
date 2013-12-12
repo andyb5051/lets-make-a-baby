@@ -41,7 +41,9 @@
 
     <script type="text/javascript">
         //Variable for use in the program
-        var Date;
+        var Year;
+        var Month;
+        var Day;
         var Cycle;
         var MonthsToCalcualteFor;
 
@@ -66,24 +68,48 @@
         }
 
         function Begin() {
-            alert('Begin');
+            //alert('Begin');
         }
 
         function GetDate() {
-            var dateVal = $('#date').val();
-            alert('Date: ' + dateVal.toLowerCase());
+
+            //Ensure that the date given in is valid
+            if ($('#date').val() != null || $('#date').val() != '') {
+                var dateVal = $('#date').val();
+                var dateArray = dateVal.split('-');
+                if (dateArray[0].length == 4 && (dateArray[1].length > 0 && dateArray[1].length <= 2) && (dateArray[2].length > 0 && dateArray[2].length <= 2)) {
+                    //alert('Year: ' + dateArray[0] + ', month: ' + dateArray[1] + ', day: ' + dateArray[2]);
+                    //Capture the date and time that the person chose form the calendar
+                    Year = dateArray[0];
+                    Month = dateArray[1];
+                    Day = dateArray[2];
+                } else {
+                    alert('Please select a valid date before continuing.');
+                    return false;
+                }
+            } else {
+                alert('Please select a valid date before continuing.');
+                return false;
+            }
         }
 
         function GetCycle() {
-            alert('Cycle');
+            //validate the input frm the user
+            if ($('#select-native-1').val() != null || $('#select-native-1').val() != '') {
+                var cycleVal = $('#select-native-1').val();
+                    //alert('Cycle: ' + $('#select-native-1').val());
+            } else {
+                alert('Please select a value from the drop down to continue.');
+                return false;
+            }
         }
 
         function CalculateDates() {
-            alert('Date is ' + $('#date'));
+            //alert('Date is ' + $('#date').val());
         }
 
         function AddToCalendar() {
-            alert('Add to Calendar');
+            //alert('Add to Calendar');
         }
     </script>
 
