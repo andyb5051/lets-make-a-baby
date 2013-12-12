@@ -39,8 +39,27 @@
     <script type="text/javascript" src="js/index.js"></script>
 
     <script type="text/javascript">
-          app.initialize();
-  </script>
+        app.initialize();
+        $(document).ready(function() {
+            generateDropDownValues();
+            attachEventListeners('#Begin_btn', test);
+            attachEventListeners('#Date_btn', test);
+            attachEventListeners('#Calculate_btn', test);
+            attachEventListeners('#Cycle_btn', test);
+            attachEventListeners('#Calendar_btn', test);
+        });
+
+
+        function attachEventListeners(id, functionName) {
+            $(id).click(function() {
+                functionName(id)
+            });
+        }
+
+        function test(id) {
+            alert(id + ' clicked');
+        }
+    </script>
 
     <link rel="stylesheet" href="css/jquery.ui.datepicker.mobile.css" />
 
@@ -62,7 +81,7 @@
             <p>Welcome to the lets make a baby app!</p>
             <p>Hopefully this application will help you to make a baby of your own!</p>
             <p>So lets get started.</p>
-            <a href="#two" data-role="button" data-transition="pop" data-theme="b">Begin</a>
+            <a href="#two" data-role="button" data-transition="pop" data-theme="b" id="Begin_btn">Begin</a>
         </div>
         <!-- /content -->
 
@@ -98,7 +117,7 @@
             <label for="date">Date:</label>
             <input type="date" name="date" id="date" value="" />
             <p>It is important for you to keep track of these details so if you do not know, please try and make a note of it next time.</p>
-            <a href="#three" data-role="button" data-transition="pop" data-theme="b">Continue</a>
+            <a href="#three" data-role="button" data-transition="pop" data-theme="b" id="Date_btn">Continue</a>
 
         </div>
         <!-- /content -->
@@ -136,7 +155,7 @@
 
             <form>
                 <div class="ui-field-contain">
-                    <label for="select-native-1">Basic:</label>
+                    <label for="select-native-1">Days:</label>
                     <select name="select-native-1" id="select-native-1">
                     </select>
                 </div>
@@ -144,7 +163,7 @@
 
 
             <p>Finally, click the button below to select how many months you would like to calculate for.</p>
-            <a href="#four" data-role="button" data-transition="pop" data-theme="b">Continue</a>
+            <a href="#four" data-role="button" data-transition="pop" data-theme="b" id="Cycle_btn">Continue</a>
 
         </div>
         <!-- /content -->
@@ -178,7 +197,7 @@
             <p>Please use the menu below to select how many months you would like to calculate for.</p>
 
             <p>Finally, click the button below to select how many months you would like to calculate for.</p>
-            <a href="#five" data-role="button" data-transition="pop" data-theme="b">Calculate</a>
+            <a href="#five" data-role="button" data-transition="pop" data-theme="b" id="Calculate_btn">Calculate</a>
 
         </div>
         <!-- /content -->
@@ -212,7 +231,7 @@
             <h2>Add these dates to your Calendar?</h2>
             <p>Click the button below if you would like to add these dates to your devices calendar so that you may never miss another opportunity.</p>
 
-            <a href="#one" data-role="button" data-transition="pop" data-theme="b">Add to Calendar</a>
+            <a href="#one" data-role="button" data-transition="pop" data-theme="b" id="Calendar_btn">Add to Calendar</a>
 
         </div>
         <!-- /content -->

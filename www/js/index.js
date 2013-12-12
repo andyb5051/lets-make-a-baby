@@ -20,7 +20,6 @@ var app = {
     // Application Constructor
     initialize: function () {
         this.bindEvents();
-        this.InitializeDropDowns();
     },
     // Bind Event Listeners
     //
@@ -35,6 +34,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
+        generateDropDownValues();
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {
@@ -46,12 +46,17 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    },
-    InitializeDropDowns: function () {
-        $(document).ready(function () {
-            for (var i = 20; i < 46; i++) {
-                $('#select-native-1').append('<option value="' + i + '">' + i.toString() + '</option>');
-            }
-        });
     }
 };
+
+function generateDropDownValues() {
+    for (var i = 20; i < 46; i++) {
+        $('#select-native-1').append('<option value="' + i + '">' + i.toString() + '</option>');
+    }
+}
+
+function attachEventListeners(id) {
+    $(id).bind('click', function () {
+        alert(id + ' clicked');
+    });
+}
