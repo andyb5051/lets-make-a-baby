@@ -38,26 +38,52 @@
     <script type="text/javascript" src="js/phonegap.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 
+
     <script type="text/javascript">
+        //Variable for use in the program
+        var Date;
+        var Cycle;
+        var MonthsToCalcualteFor;
+
+
         app.initialize();
+
         $(document).ready(function() {
             generateDropDownValues();
-            attachEventListeners('#Begin_btn', test);
-            attachEventListeners('#Date_btn', test);
-            attachEventListeners('#Calculate_btn', test);
-            attachEventListeners('#Cycle_btn', test);
-            attachEventListeners('#Calendar_btn', test);
+            attachEventListeners('#Begin_btn', Begin);
+            attachEventListeners('#Date_btn', GetDate);
+            attachEventListeners('#Calculate_btn', CalculateDates);
+            attachEventListeners('#Cycle_btn', GetCycle);
+            attachEventListeners('#Calendar_btn', AddToCalendar);
         });
 
 
+         //Attahcs the corresponding events to the buttons
         function attachEventListeners(id, functionName) {
             $(id).click(function() {
-                functionName(id)
+                functionName()
             });
         }
 
-        function test(id) {
-            alert(id + ' clicked');
+        function Begin() {
+            alert('Begin');
+        }
+
+        function GetDate() {
+            var dateVal = $('#date').val();
+            alert('Date: ' + dateVal.toLowerCase());
+        }
+
+        function GetCycle() {
+            alert('Cycle');
+        }
+
+        function CalculateDates() {
+            alert('Date is ' + $('#date'));
+        }
+
+        function AddToCalendar() {
+            alert('Add to Calendar');
         }
     </script>
 
