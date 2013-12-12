@@ -21,33 +21,28 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name='viewport' content='width='device-width'/>
+    <meta name='viewport' width='device-width' />
 
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/mobipick.css" />
 
-    <script type="text/javascript" src="js/xdate.js"></script>
-    <script type="text/javascript" src="js/xdate.i18n.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <script type="text/javascript" src="js/modernizr.custom.min.js"></script>
-
-
-    <script type="text/javascript" src="js/mobipick.js"></script>
-    <script type="text/javascript">
-        $(document).ready("pagecreate", pageselector, function() {
-            var picker = $("input[type='text']", this);
-            picker.mobipick();
-
-            picker.on("change", function() {
-                var date = $(this).val();
-
-                // formatted date					
-                var dateObject = $(this).mobipick("option", "date");
-            });
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js">
+        $(function() {
+            $("#datepicker").datepicker();
         });
     </script>
+
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+    <script type="text/javascript" src="js/phonegap.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript">
+          app.initialize();
+  </script>
+
+    <link rel="stylesheet" href="css/jquery.ui.datepicker.mobile.css" />
 
     <title>Lets Make a Baby</title>
 </head>
@@ -56,7 +51,7 @@
 
 
 
-    <div data-role="page" data-theme="e" id="one">
+    <div data-role="page" data-theme="c" id="one">
 
         <div data-role="header">
             <h1>Lets Make a Baby</h1>
@@ -67,12 +62,7 @@
             <p>Welcome to the lets make a baby app!</p>
             <p>Hopefully this application will help you to make a baby of your own!</p>
             <p>So lets get started.</p>
-
-            <div data-role="controls">
-                <div data-role="controlgroup">
-                    <a href="#two" data-role="button">Start here</a>
-                </div>
-            </div>
+            <a href="#two" data-role="button" data-transition="pop" data-theme="b">Begin</a>
         </div>
         <!-- /content -->
 
@@ -93,7 +83,7 @@
     <!-- ************************************************************************************************ -->
 
 
-    <div data-role="page" data-theme="e" id="two">
+    <div data-role="page" data-theme="c" id="two">
 
         <div data-role="header">
             <h1>Lets Make a Baby</h1>
@@ -101,16 +91,14 @@
         <!-- /header -->
 
         <div data-role="content">
-            <h2>Ok here we go ...</h2>
-            <p>Firstly ther are some details that we are going to need from you.</p>
-            <p>So lets get started.</p>
-
-            <label for="date">Please select the last date that you ovulated from the calendar below:</label>
+            <h2>When was the first day of your last period?</h2>
+            <p>Please use the date control below to select the first day of your last period.</p>
 
 
-            <a href="#one" data-role="button">Back to Page One!</a>
-            <input type="text" />
-
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" value="" />
+            <p>It is important for you to keep track of these details so if you do not know, please try and make a note of it next time.</p>
+            <a href="#three" data-role="button" data-transition="pop" data-theme="b">Continue</a>
 
         </div>
         <!-- /content -->
@@ -126,6 +114,123 @@
 
     </div>
     <!-- /page -->
+
+
+    <!-- ************************************************************************************************ -->
+    <!-- ******************************              PAGE 3          ************************************ -->
+    <!-- ************************************************************************************************ -->
+
+
+    <div data-role="page" data-theme="c" id="three">
+
+        <div data-role="header">
+            <h1>Lets Make a Baby</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+            <h2>What is the average length of your cycle?</h2>
+            <p>We now need to know the average length of your cycle. This is typically between 20 and 45 days.</p>
+
+            <p>Please use the menu below to select your average cycle length.</p>
+
+            <form>
+                <div class="ui-field-contain">
+                    <label for="select-native-1">Basic:</label>
+                    <select name="select-native-1" id="select-native-1">
+                    </select>
+                </div>
+            </form>
+
+
+            <p>Finally, click the button below to select how many months you would like to calculate for.</p>
+            <a href="#four" data-role="button" data-transition="pop" data-theme="b">Continue</a>
+
+        </div>
+        <!-- /content -->
+
+
+
+        <div data-role="footer" data-position="fixed">
+            <p>
+                <div align="center">Andy Brown 2013 &copy;</div>
+            </p>
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /page -->
+
+    <!-- ************************************************************************************************ -->
+    <!-- ******************************              PAGE 4          ************************************ -->
+    <!-- ************************************************************************************************ -->
+
+
+    <div data-role="page" data-theme="c" id="four">
+
+        <div data-role="header">
+            <h1>Lets Make a Baby</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+            <h2>Calculation Length</h2>
+            <p>Please use the menu below to select how many months you would like to calculate for.</p>
+
+            <p>Finally, click the button below to select how many months you would like to calculate for.</p>
+            <a href="#five" data-role="button" data-transition="pop" data-theme="b">Calculate</a>
+
+        </div>
+        <!-- /content -->
+
+
+
+        <div data-role="footer" data-position="fixed">
+            <p>
+                <div align="center">Andy Brown 2013 &copy;</div>
+            </p>
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /page -->
+
+
+    <!-- ************************************************************************************************ -->
+    <!-- ******************************              PAGE 5          ************************************ -->
+    <!-- ************************************************************************************************ -->
+
+
+    <div data-role="page" data-theme="c" id="five">
+
+        <div data-role="header">
+            <h1>Lets Make a Baby</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+            <h2>Add these dates to your Calendar?</h2>
+            <p>Click the button below if you would like to add these dates to your devices calendar so that you may never miss another opportunity.</p>
+
+            <a href="#one" data-role="button" data-transition="pop" data-theme="b">Add to Calendar</a>
+
+        </div>
+        <!-- /content -->
+
+
+
+        <div data-role="footer" data-position="fixed">
+            <p>
+                <div align="center">Andy Brown 2013 &copy;</div>
+            </p>
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /page -->
+
+
+
 </body>
 
 </html>
